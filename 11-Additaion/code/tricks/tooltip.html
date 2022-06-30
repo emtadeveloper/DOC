@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Javascript.front</title>
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+        />
+        <style>
+            body {
+                background: #f6f6f6;
+                font-family: "Helvetica", "Arial";
+                padding-top: 100px;
+                text-align: center;
+            }
+            a {
+                background: #c8ccc8;
+                color: #222;
+                border-radius: 100%;
+                display: inline-block;
+                text-decoration: none;
+                position: relative;
+                width: 40px;
+                height: 28px;
+                margin: 0 2px;
+                padding-top: 12px;
+                transition: all 0.5s;
+            }
+
+            a.icon:before {
+                font-family: "FontAwesome", sans-serif;
+                color: #fff;
+                font-size: 20px;
+            }
+            a.facebook:before {
+                content: "\f09a";
+            }
+            a.twitter:before {
+                content: "\f099";
+            }
+            a.github:before {
+                content: "\f113";
+            }
+            a.dribble:before {
+                content: "\f17d";
+            }
+            a.pinterest:before {
+                content: "\f0d2";
+            }
+
+            a span {
+                background: #fff;
+                color: #222;
+                font-size: 14px;
+                font-weight: bold;
+                position: absolute;
+                bottom: 0;
+                left: -25px;
+                right: -25px;
+                padding: 5px 7px;
+                visibility: hidden;
+                opacity: 0;
+                transition: all 0.4s;
+            }
+            a span:before {
+                content: "";
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                position: absolute;
+                bottom: -5px;
+                left: 40px;
+            }
+            a.facebook span:before {
+                border-top: 5px solid #4183d7;
+            }
+
+            a.twitter span:before {
+                border-top: 5px solid #19b5fe;
+            }
+            a.github span:before {
+                border-top: 5px solid #000;
+            }
+            a.dribble span:before {
+                border-top: 5px solid #f62459;
+            }
+            a.pinterest span:before {
+                border-top: 5px solid #f22613;
+            }
+            a:hover span {
+                bottom: 50px;
+                visibility: visible;
+                opacity: 1;
+            }
+            a.facebook:hover {
+                background-color: #4183d7;
+                color: #bfbfbf;
+            }
+
+            a.facebook span {
+                background-color: #4183d7;
+                color: #fff;
+                border-radius: 1px;
+            }
+            a.twitter:hover {
+                background-color: #19b5fe;
+                color: #fff;
+            }
+            a.twitter span {
+                background-color: #19b5fe;
+                color: #fff;
+                border-radius: 1px;
+            }
+            a.github:hover {
+                background-color: #000;
+                color: #fff;
+            }
+            a.github span {
+                background-color: #000;
+                color: #fff;
+                border-radius: 1px;
+            }
+            a.dribble:hover {
+                background-color: #f62459;
+                color: #fff;
+            }
+            a.dribble span {
+                background-color: #f62459;
+                color: #fff;
+                border-radius: 1px;
+            }
+            a.pinterest:hover {
+                background-color: #f22613;
+                color: #fff;
+            }
+            a.pinterest span {
+                color: #fff;
+                background-color: #f22613;
+                border-radius: 1px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <a href="#" class="icon facebook"><span>Facebook</span></a>
+            <a href="#" class="icon twitter"><span>Twitter</span></a>
+            <a href="#" class="icon github"><span>Github</span></a>
+            <a href="#" class="icon dribble"><span>Dribble</span></a>
+            <a href="#" class="icon pinterest"><span>Pinterest</span></a>
+        </div>
+    </body>
+</html>

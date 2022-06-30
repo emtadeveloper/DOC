@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fa">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>پروژه 7</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <style>
+            .course-title {
+                display: flex;
+                justify-content: center;
+                font-weight: bold;
+                padding: 100px;
+                font-size: 34px;
+            }
+
+            body,
+            html {
+                background-color: yellow;
+                height: 100%;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            main {
+                height: 100%;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .aside-section {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+            }
+
+            .aside-left {
+                width: 40%;
+                /* position: relative; */
+                left: 0;
+                background-color: #ff5964;
+                transform: translateY(-100%);
+
+                transition: transform 0.4s ease-in-out;
+            }
+
+            .aside-right {
+                width: 60%;
+                right: 0;
+                background-color: #38618c;
+                /* position: relative; */
+                transform: translateX(100%);
+                transition: transform 0.4s ease-in-out;
+            }
+
+            .aside-right .aside-list {
+                list-style: none;
+                padding: 0 72px 0 50px;
+                margin: 0;
+                margin-top: 150px;
+                text-align: right;
+            }
+
+            .aside-right .aside-list li {
+                margin-bottom: 20px;
+            }
+
+            .aside-list li a.aside-anchor {
+                color: #fff;
+                text-decoration: none;
+                font-size: 20px;
+                position: relative;
+                padding-bottom: 10px;
+            }
+
+            .aside-list li a.aside-anchor::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                background-color: #fff;
+                left: 0;
+                height: 3px;
+                z-index: 1;
+                width: 50%;
+                transition: transform 0.2s ease-in-out;
+            }
+
+            .aside-list li a.aside-anchor::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                width: 100%;
+                background-color: #ff5964;
+                border-radius: 3px;
+            }
+
+            .aside-anchor:hover::before {
+                transform: translateX(100%);
+            }
+
+            .aside-content {
+                margin-top: 150px;
+                padding: 0 40px;
+                color: #fff;
+                text-align: center;
+                font-size: 29px;
+            }
+
+            .aside-content button {
+                display: inline-block;
+                background-color: transparent;
+                border: 1px solid #fff;
+                color: #fff;
+                margin-top: 7px;
+                padding: 7px 50px;
+                font-size: 20px;
+                cursor: pointer;
+            }
+
+            input#myInput:checked ~ aside .aside-left {
+                transform: translateY(0%);
+            }
+
+            input#myInput:checked ~ aside .aside-right {
+                transform: translateX(0%);
+            }
+
+            #myInput {
+                position: fixed;
+                top: 0;
+                z-index: 3;
+                display: none;
+            }
+
+            label {
+                position: fixed;
+                top: 28px;
+                z-index: 3;
+                cursor: pointer;
+                left: 20px;
+            }
+
+            label .bar {
+                display: block;
+                width: 30px;
+                height: 3px;
+                background-color: #38618c;
+                border-radius: 5px;
+                margin: 5px 0;
+                transition: background-color 0.4s ease-in, opacity 0.4s ease-in,
+                    transform 0.4s ease-in;
+            }
+
+            #myInput:checked ~ label .bar {
+                background-color: #fff;
+            }
+
+            #myInput:checked ~ label .top {
+                transform: translateY(0) rotate(45deg);
+            }
+
+            #myInput:checked ~ label .bottom {
+                transform: translateY(-15px) rotate(-45deg);
+            }
+
+            #myInput:checked ~ label .middle {
+                opacity: 0;
+            }
+
+            @media screen and (max-width: 992px) {
+                .aside-right {
+                    width: 100%;
+                }
+
+                .aside-left {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <main>
+            <p class="course-title">پروژه شماره 7</p>
+            <input type="checkbox" id="myInput" />
+            <label for="myInput">
+                <span class="bar top"></span>
+                <span class="bar middle"></span>
+                <span class="bar bottom"></span>
+            </label>
+            <aside>
+                <div class="aside-section aside-left">
+                    <div class="aside-content">
+                        <p>محتوای مورد نظر شما</p>
+                        <button class="button">بزن بریم</button>
+                    </div>
+                </div>
+                <div class="aside-section aside-right">
+                    <ul class="aside-list">
+                        <li><a href="" class="aside-anchor">خانه</a></li>
+                        <li>
+                            <a href="" class="aside-anchor">دوره های آموزشی</a>
+                        </li>
+                        <li><a href="" class="aside-anchor">تماس با ما</a></li>
+                        <li><a href="" class="aside-anchor">درباره ما</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </main>
+    </body>
+</html>

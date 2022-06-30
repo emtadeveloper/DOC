@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fa">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>پروژه 9</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <style>
+            .course-title {
+                display: flex;
+                justify-content: center;
+                font-weight: bold;
+                padding: 100px;
+                font-size: 34px;
+                color: #fff;
+            }
+            body {
+                background-color: #009688;
+                overflow: hidden;
+            }
+            .loop-wrapper {
+                margin: 0 auto;
+                position: relative;
+                display: block;
+                width: 600px;
+                height: 250px;
+                overflow: hidden;
+                border-bottom: 3px solid #fff;
+                color: #fff;
+            }
+            .mountain {
+                position: absolute;
+                right: -900px;
+                bottom: -20px;
+                width: 2px;
+                height: 2px;
+                box-shadow: 0 0 0 50px #4db6ac, 60px 50px 0 70px #4db6ac,
+                    90px 90px 0 50px #4db6ac, 250px 250px 0 50px #4db6ac,
+                    290px 320px 0 50px #4db6ac, 320px 400px 0 50px #4db6ac;
+                transform: rotate(130deg);
+            }
+            .hill {
+                position: absolute;
+                right: -900px;
+                bottom: -50px;
+                border-radius: 50%;
+                height: 20px;
+                width: 400px;
+                box-shadow: 0 0 0 50px #4db6ac, -20px 0 0 20px #4db6ac,
+                    -90px 0 0 50px #4db6ac, 250px 0 0 50px #4db6ac,
+                    290px 0 0 50px #4db6ac, 620px 0 0 50px #4db6ac;
+            }
+            .tree,
+            .tree:nth-child(2),
+            .tree:nth-child(3) {
+                position: absolute;
+                height: 100px;
+                width: 35px;
+                bottom: 0;
+                background: url("./img/tree.svg") no-repeat;
+            }
+            .rock {
+                margin-top: -17%;
+                height: 6px;
+                width: 6px;
+                bottom: -2px;
+                right: 100%;
+                border-radius: 20%;
+                position: absolute;
+                background: #ddd;
+            }
+            .truck,
+            .wheels {
+                transition: all ease;
+                width: 85px;
+                margin-right: -60px;
+                position: absolute;
+                bottom: 0;
+                right: 50%;
+                background: #eee;
+            }
+            .truck {
+                background: url("./img/truck.svg") no-repeat;
+                background-size: contain;
+                height: 60px;
+            }
+            .truck::before {
+                content: "";
+                position: absolute;
+                width: 25px;
+                box-shadow: -30px 28px 0 1.5px#fff, -35px 18px 0 1.5px #fff;
+            }
+            .wheels {
+                background: url("./img/wheels.svg");
+                height: 15px;
+            }
+            .tree {
+                animation: tree 3s 0s linear infinite;
+            }
+            .tree:nth-child(2) {
+                animation: tree2 2s 0.15s linear infinite;
+            }
+            .tree:nth-child(3) {
+                animation: tree3 8s 0.05s linear infinite;
+            }
+            .rock {
+                animation: rock 4s -0.53s linear infinite;
+            }
+            .truck {
+                animation: truck 4s 0.08s ease infinite;
+            }
+            .wheels {
+                animation: truck 4s 0.001s ease infinite;
+            }
+            .truck::before {
+                animation: wind 1.5s 0s ease infinite;
+            }
+            .mountain {
+                animation: mountain 20s linear infinite;
+            }
+            .hill {
+                animation: hill 4s 2s linear infinite;
+            }
+
+            @keyframes tree {
+                0% {
+                    transform: translateX(1350px);
+                }
+                100% {
+                    transform: translateX(-50px);
+                }
+            }
+            @keyframes tree2 {
+                0% {
+                    transform: translateX(650px);
+                }
+                100% {
+                    transform: translateX(-50px);
+                }
+            }
+            @keyframes tree3 {
+                0% {
+                    transform: translateX(2750px);
+                }
+                100% {
+                    transform: translateX(-50px);
+                }
+            }
+            @keyframes rock {
+                0% {
+                    right: -200px;
+                }
+                100% {
+                    right: 2000px;
+                }
+            }
+            @keyframes truck {
+                6% {
+                    transform: translateY(0px);
+                }
+                7% {
+                    transform: translateY(-6px);
+                }
+                9% {
+                    transform: translateY(0px);
+                }
+                10% {
+                    transform: translateY(-1px);
+                }
+                11% {
+                    transform: translateY(0px);
+                }
+            }
+            @keyframes wind {
+                50% {
+                    transform: translateY(3px);
+                }
+            }
+            @keyframes mountain {
+                100% {
+                    transform: translateX(-2000px) rotate(130deg);
+                }
+            }
+            @keyframes hill {
+                100% {
+                    transform: translateX(-2000px);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <p class="course-title">پروژه شماره 9</p>
+        <div class="loop-wrapper">
+            <div class="mountain"></div>
+            <div class="hill"></div>
+            <div class="tree"></div>
+            <div class="tree"></div>
+            <div class="tree"></div>
+            <div class="rock"></div>
+            <div class="truck"></div>
+            <div class="wheels"></div>
+        </div>
+    </body>
+</html>

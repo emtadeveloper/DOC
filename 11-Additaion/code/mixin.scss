@@ -1,0 +1,134 @@
+@import "./variable.scss";
+// ===========  mixin ========
+@mixin flex(
+  $flex: flex,
+  $flex-direction: row-reverse,
+  $alignItem: center,
+  $justifyContent: center
+) {
+  display: $flex;
+  flex-direction: $flex-direction;
+  align-items: $alignItem;
+  justify-content: $justifyContent;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-column {
+  @include flex-center;
+  flex-direction: column;
+}
+
+@mixin flex-center-vert {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-center-horiz {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin margin-padding($margin-padding, $top, $right, $bottom, $left) {
+  @if $margin-padding {
+    margin-top: $top;
+    margin-right: $right;
+    margin-bottom: $bottom;
+    margin-left: $left;
+  } @else {
+    padding-top: $top;
+    padding-right: $right;
+    padding-bottom: $bottom;
+    padding-left: $left;
+  }
+}
+
+@mixin position-absolute($postion, $top, $right, $bottom, $left) {
+  position: $postion;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin abs-position($top, $right, $bottom, $left) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin box($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin font-style($fontSize, $fontColor, $fontWeight) {
+  font-size: $fontSize;
+  color: $fontColor;
+  font-weight: $fontWeight;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin center-vertically {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin push-auto {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@mixin cover-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+// container Responsive     // scss
+
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    @media only screen and (min-width: 576px) {
+        max-width: 540px;    }
+    @media only screen and (min-width: 768px) {
+        max-width: 720px;    }
+    @media only screen and (min-width: 992px) {
+        max-width: 960px;    }
+    @media only screen and (min-width: 1200px) {
+        max-width: 1140px;  }
+    @media only screen and (min-width: 1400px) {
+        max-width: 1320px;  }
+}

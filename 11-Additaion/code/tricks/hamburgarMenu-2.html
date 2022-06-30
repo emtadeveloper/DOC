@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fa">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>پروژه 3</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+        />
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <style>
+            body {
+                margin: 0;
+                background-color: #5b80aa;
+            }
+            label {
+                position: absolute;
+                z-index: 1;
+            }
+            input#test {
+                display: none;
+            }
+            input#test:checked ~ label {
+                right: 0;
+            }
+            svg.burger g,
+            svg.close g {
+                stroke: #fff;
+                transition: all 0.25s ease-in-out;
+            }
+            svg.burger g:hover,
+            svg.close g:hover {
+                stroke: #cccc;
+                cursor: pointer;
+            }
+
+            svg.close,
+            svg.burger {
+                position: relative;
+                top: 24px;
+                cursor: pointer;
+                opacity: 0;
+            }
+            svg.burger {
+                opacity: 1;
+            }
+            svg.close line {
+                transform-origin: 0%;
+            }
+            svg.close g {
+                transform: rotate(45deg);
+                transform-origin: 50%;
+            }
+            input#test:checked ~ label .burger {
+                opacity: 0;
+            }
+            input#test:checked ~ label .close {
+                opacity: 1;
+            }
+
+            .menu {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                position: absolute;
+                width: 100vw;
+                height: 100vh;
+                background-color: tomato;
+                transition: opacity 0.8s cubic-bezier(0.17, 0.88, 0.32, 1.25);
+                color: #fff;
+                font-size: 24px;
+                font-weight: bold;
+                opacity: 0;
+            }
+            .menu div {
+                margin-top: 50px;
+                transition: margin 0.8s cubic-bezier(0.17, 0.88, 0.32, 1.25);
+            }
+            .main {
+                display: flex;
+                width: 100vw;
+                height: 100vh;
+            }
+            input#test:checked ~ .menu div {
+                margin-top: 0;
+            }
+            .main span {
+                margin: auto;
+                font-size: 40px;
+                color: #fff;
+            }
+            input#test:checked ~ .menu {
+                opacity: 1;
+            }
+            .menu ul li {
+                list-style: none;
+            }
+            .menu ul li {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .menu ul li a {
+                text-decoration: none;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <input id="test" type="checkbox" />
+        <label for="test">
+            <svg class="burger" width="86" height="60" viewbox="0 0 150 150">
+                <g stroke-width="12">
+                    <line x1="6" y1="6" x2="80" y2="6"></line>
+                    <line x1="6" y1="28" x2="80" y2="28"></line>
+                    <line x1="6" y1="50" x2="80" y2="50"></line>
+                </g>
+            </svg>
+            <svg class="close" width="86" height="60" viewbox="0 0 150 150">
+                <g stroke-width="12">
+                    <line x1="42" y1="6" x2="42" y2="80"></line>
+                    <line x1="6" y1="42" x2="80" y2="42"></line>
+                </g>
+            </svg>
+        </label>
+        <div class="menu">
+            <ul>
+                <li><a href="">خانه</a></li>
+                <li><a href="">دوره های آموزشی</a></li>
+                <li><a href="">درباره ما</a></li>
+                <li><a href=""> تماس با ما</a></li>
+            </ul>
+        </div>
+        <span class="main">
+            <span>دوره متخصص طراحی وب</span>
+        </span>
+    </body>
+</html>
