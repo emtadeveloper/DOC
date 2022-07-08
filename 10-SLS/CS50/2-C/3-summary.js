@@ -1,34 +1,5 @@
 /*
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-install C to VSCode
-
-1 - install  mingw  :::  sudo apt-get update   /   sudo apt-get -y install mingw-w64
-                         sudo apt update       /    sudo apt -y install mingw-w64
-
-
-2 - https://github.com/cs50/libcs50/archive/refs/tags/v10.1.0.tar.gz  دانلود 
-    cd desktop/libcs50-10.1.0
-    sudo make install
-    #include <cs50.h>
-    clang hello.c -o hello -lcs50
-
-۳- make hello  /  clang hello.c -o hello -lcs50   /  ./hello 
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-linux order
-
-cd ::  change directory // cd ..                 |||||||||        cp ::  copy directory 
-
-ls ::  list files and folder                     |||||||||      mkdir ::  create directory  
-
-mv :: mover or rename directory of files         |||||||||     rm :: remove files 
-
-rmdir :: remove or directory                     |||||||||     code ::  create files
-
-ctrl + L  ::  clear terminal
-
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 operators ::  + for addition  - for subtraction   * for multiplication   / for division   % for remainder
@@ -39,23 +10,32 @@ syntactic sugar  :: counter = counter + 1     //  counter ++  //  counter --
 
 data Types
 
-bool, a Boolean expression of either true or false  //   8 bits
-char, a single character like a or 2   // 8 bits
-double, a floating-point value with more digits than a float   // 64 bits
-float, a floating-point value, or real number with a decimal value  // 32 bits
-int, integers up to a certain size, or number of bits   // 32 bits
-long, integers with more bits, so they can count higher than an int  // 64 bits
-string, a string of characters    // 32 bits
+bool, a Boolean expression of either true or false  //   8 bits  // 1 byte
 
+char, a single character like a or 2   // 8 bits // 1 byte
+
+double, a floating-point value with more digits than a float   // 64 bits // 8 byte
+
+float, a floating-point value, or real number with a decimal value  // 32 bits  // 4 byte
+
+int, integers up to a certain size, or number of bits   // 32 bits // 4 byte
+
+long, integers with more bits, so they can count higher than an int  // 64 bits   // 4 byte
+
+string, a string of characters    // 32 bits  // 4 byte
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 For printf, too, there are different placeholders for each type, called format codes:
 
 %c for chars
+
 %f for floats or doubles
+
 %i for ints
+
 %li for long integers
+
 %s for strings
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -68,16 +48,11 @@ Stores the date in 32 bits and ends in 2038. These bits are called overflow inte
 
 int 2 / int 3  =  0.000+
 
-برای مثال ما ممکن هستش که بیایم و دو تا عدد اعشاری رو جمع بکنیم که حاصل اون در داخل این ۳۲ بیتی که حافظه به اون
-اختصاص داده شده جای نگیره و دور ریخته بشه و اون عددی که نمایش داده میشه یک ذره متفاوت باشه برای همین باعث یک ذره
-خطا داخل محاصبات ما بشه  حالا ما میتونیم بیایم و ببینیم که این مقدار ما یک میزان خطایی رو میتونه داشه باشه برای 
-همین میتونیم بیایم و اختلاف اون هارو ببینیم کوچک تر از اون هستش یا نه و چک اش بکنیم
+برای مثال ما ممکن هستش که بیایم و دو تا عدد اعشاری رو جمع بکنیم که حاصل اون در داخل این ۳۲ بیتی که حافظه به اون اختصاص داده شده جای نگیره و دور ریخته بشه 
+و اون عددی که نمایش داده میشه یک ذره متفاوت باشه برای همین باعث یک ذره خطا داخل محاصبات ما بشه  حالا ما میتونیم بیایم و ببینیم که ا ین مقدار ما یک میزان خطایی
+رو میتونه داشه باشه برای  همین میتونیم بیایم و اختلاف اون هارو ببینیم کوچک تر از اون هستش یا نه و چک اش بکنیم
 
-const equalDecimalNumber = (num1,num2)=>{
-
-   return  (Math.abs(num1 - num2) < Number.EPSILON * 10 ) 
-   
-}
+const equalDecimalNumber = ( num1,num2 ) =>  ( Math.abs ( num1 - num2 ) < Number.EPSILON * 10 ) 
 
 console.log(equalDecimalNumber(0.3,0.1+0.2))
 

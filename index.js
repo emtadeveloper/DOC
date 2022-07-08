@@ -1,11 +1,20 @@
-var multiply = function(num1, num2) {
-   const number1 = +num1;
-   const number2 = +num2;
-   let news =  BigInt(number1 * number2);
-   let eeee = 0;
-   eeee = BigInt(number1 * number2) - BigInt(Number.MAX_SAFE_INTEGER)
-   return eeee
-};
+const mario = (n) => {
+    if (1 < n && n < 8) {
+        for (i = 0; i < n; i++) {
+            let sharp = "";
+            for (j = 0; j <= n; j++) {
+                if (n - i <= j) {
+                    sharp = sharp + "#";
+                } else {
+                    sharp = sharp + " ";
+                }
+            }
+            console.log(sharp + " " + [...sharp].reverse().join(""));
+        }
+    } else {
+        return "n is not valid";
+    }
 
-console.log(multiply("123456789","987654321"))
-    
+    return "";
+};
+console.log(mario(6));
