@@ -1,20 +1,30 @@
-const mario = (n) => {
-    if (1 < n && n < 8) {
-        for (i = 0; i < n; i++) {
-            let sharp = "";
-            for (j = 0; j <= n; j++) {
-                if (n - i <= j) {
-                    sharp = sharp + "#";
-                } else {
-                    sharp = sharp + " ";
-                }
-            }
-            console.log(sharp + " " + [...sharp].reverse().join(""));
-        }
-    } else {
-        return "n is not valid";
-    }
+let message = "Hello World";
 
-    return "";
-};
-console.log(mario(6));
+class HashTabel {
+    constructor() {
+        this.size = 10000;
+        this.products = Array(1000).fill(null);
+    }
+    hash(key) {
+        let hash = 0;
+        for (const char of key) {
+            hash += char.charAtCode(0);
+        }
+        return hash % this.size;
+    }
+}
+
+const tabel = new HashTabel();
+
+function findFristChar(str) {
+    const tabel = {};
+    for (char of str) {
+        console.log(tabel[char]);
+        if (tabel[char]) {
+            return char;
+        }
+        tabel[char] = 1;
+    }
+}
+
+console.log(findFristChar(message));
