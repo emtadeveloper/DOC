@@ -1,9 +1,11 @@
 class LinkedList {
+    //
     constructor() {
         this.head = null;
         this.tail = null;
     }
 
+    //
     append(value) {
         const newElement = { value: value, next: null };
         if (this.tail) {
@@ -15,6 +17,7 @@ class LinkedList {
         }
     }
 
+    //
     prepend(value) {
         const newElement = { value: value, next: this.head };
         this.head = newElement;
@@ -23,12 +26,22 @@ class LinkedList {
         }
     }
 
+    //
     find(value) {
         if (!this.head) {
             return null;
         }
+        let curElement = this.head
+        while(curElement){
+            if(curElement.value === value){
+                return curElement
+            }
+            curElement = curElement.next
+        }
+        return "not found"
     }
 
+    //
     delete(value) {
         if (!this.head) {
             return null;
@@ -50,6 +63,7 @@ class LinkedList {
         }
     }
 
+    //
     toArray() {
         const elements = [];
         let curElement = this.head;
@@ -59,7 +73,16 @@ class LinkedList {
         }
         return elements;
     }
+
+    insertAfter(value,afterValue){
+        const existingElement = this.find(afterValue);
+        if(existingElement){
+            const newElement = { value : value , nex : existingElement.value}
+            existingElement.next = newElement;
+        }
+    }
 }
+
 
 const linkedlist = new LinkedList();
 
@@ -72,4 +95,9 @@ linkedlist.prepend("Frist Value");
 linkedlist.delete("s");
 linkedlist.delete("Frist Value");
 linkedlist.delete(true);
+// console.log(linkedlist.toArray());
+// console.log(linkedlist.find("s"))
+// console.log(linkedlist.find(2))
+
+linkedlist.insertAfter("new Value",2)
 console.log(linkedlist.toArray());
