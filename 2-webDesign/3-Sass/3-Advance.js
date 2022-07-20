@@ -41,6 +41,73 @@ btn-sucsess {
 }
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+mixin for breakpoint 
+
+@mixin breakpoint ( $point ) {
+
+    @ if $point == watch {
+        @media ( min-width : 160px) {
+            @content;
+        }
+    }
+
+    @ else if $point == xxsmall {
+        @media ( min-width : 351px) {
+            @content;
+        }
+    }
+
+    @ else if $point == xsmall {
+        @media ( min-width :576px) {
+            @content;
+        }
+    }
+
+    @ else if $point == small {
+        @media ( min-width :768px) {
+            @content;
+        }
+    }
+
+    @ else if $point == medium {
+        @media ( min-width :992px) {
+            @content;
+        }
+    }
+
+    @ else if $point == large {
+        @media ( min-width :1200px) {
+            @content;
+        }
+    }
+
+    @ else if $point == xlarge {
+        @media ( min-width :1300px) {
+            @content;
+        }
+    }
+
+    @ else if $point == ultra {
+        @media ( min-width :1400px) {
+            @content;
+        }
+    }    
+}
+
+
+حالا در تیکه کد بالا که بخایم بیایم و استفاده یکنیم
+
+.title {
+    font- size : 20px;
+    @includes breakpoint (large){  font-size : 30px }
+}
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 5- extend به شدت شبیه بالایی تفاوت اش در کم کردن حجم کدهامون هستش
 اون چیزایی که مشترک هستش رو مینویسه و عینا یک جا مینویسه در کامپایل کردن
