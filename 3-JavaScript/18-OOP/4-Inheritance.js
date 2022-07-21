@@ -5,6 +5,8 @@
 که ازش ارث برده میگن کلاس پرنت و به خود اون کلاس میگن چیلد ما بهتره بیایم و کلاس هایی به صورت پدر و فرزند با هم دیگه ارث بری کنیم که ویژگی های مشترک زیاد رو با  
 هم  هم داشته باشند همچنین ماهیت کلاس ها در جاوااسکریپت همون اشیا هستند   
 
+وقتی یک کلاس میاد و از یک کلاس دیگه ارث بری میکنه یعنی به متد ها و پراپرتی های اون دسترسی داره البته اون هایی که عمومی باشه نه خصوصی
+
 نکته : ما علاوه بر ارث بری کلاس ها میتونیم بیایم و ارث بری کلاس از تابع رو هم داشته باشیم که بهش ارث بری پویا میگویند
 
 نکته : خوب ما گفتیم در جاوااسکریپت چیزی به اسم کلاس رو نداریم و ارث بری ها در اصل از همون اشیا هستند حال تفاوت کلاس ها با کانستراکتور فانکشن هامون در دو چیز  هست
@@ -25,8 +27,11 @@
 تابع استفاده میکنیم تا پارامتر هایی که پدرش نیاز داره رو بهش پاس بدهیم
 
 class Person {
+
   constructor(name, age) {   this.name = name;  this.age = age; } 
+
   sayName() {
+
     return "My name is " + this.name + " " + this.age + "  old year";  }
 }
 
@@ -38,5 +43,114 @@ let emad = new Programer("emad",24)
 
 اگر ما این کار رو انجام ندیم در اصل مفهوم ارث بری رو به طور کامل رعایت نکرده ایم
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+یک کلاس در جاوااسکریپت شامل موارد زیر است
+
+۱ - Property ( خصوصیت های اون کلاس هامون هستش )   2 - Methods     3 - Constructor
+
+نکته :‌اگر ما یک کانستراکتور داخل بدنه یک تابع نزاریم خودش پیش فرض یک دونه میاد میزاره که خالی هستش 
+
+داریم که این ها سطح دسترسی های مختلفی دارند field  ما به طور کلی دو نوع 
+
+فیلد های نمونه کلاس  عمومی و فیلد های خود کلاس خصوصی
+
+# ما با استفاده از 
+
+public Field   :  هر فیلدی که به طور معمولی تعریف بکنیم یک فیلدعمومیه
+ 
+priavte Field  :  هرفیلدی که با استفاده از # تعریف کنیم فیلد خصوصیه
+
+Static Field   :  فیلد هایی هستند که مربوط به خد کلاس ها هستند نه نمونه هاشون  و معمولا اطلاعات خصوصی که مربوط به خود کلاس میشند رو شامل میشه
+
+ما میتونیم بیایم و یکسری فیلد های استاتیک و خصوصی رو باهم دیگه  درست بکنیم
+
+
+class User {
+
+static  ROLE_ADMIN = 'admin'
+
+static ROLE_VISITOR = 'visitor'
+
+#id ;  private property
+
+name;  public property
+
+age;  public property
+
+static #instance 
+
+static #MAX_INSTANCE = 1
+
+static #names = []
+
+constructor ( name ,age , role ){
+
+  user.#instance++;
+
+  if( User.#instance > User.#MAX_INTANCE ) {
+    throw new Error ("denided")
+  }
+
+
+  if( User.#isNameTaken(name) ) {
+    throw new Error ("chose another name !")
+  }
+
+  this.#id = Math.ceil(Math.random() * 10000 )
+  this.name = name
+  this.age = age;
+  this.#names.push(name)
+
+static #isNameTaken(name){
+  return User.#names.includes(name)
+}
+
+#getName () { return this.name }
+
+getNameLen () { return this.#getName().length }
+
+getID () { return this.#id  }
+ 
+  }
+
+}
+
+const user1 = new User("ali",15,user.ROLE_ADMIN )
+const user1 = new User("ali",35,user.ROLE_ADMIN )
+const user2 = new User("reza",25,user.ROLE_VISITOR )
+
+console.log(user1);
+console.log(user2);
+
+
+console.log(user1.getID)
+
+
+در داخل ارث بری نکته ای که هستش حتما حتما باید متد سوپر رو قبل از نام گزاری مقادیر اولیه در کانستراکتور امون بیایم و استفاده بکنیم
+
+class Writer extends User {
+
+  books = []
+
+  constructor(name , age , role , book ){
+
+    super(name , age , role )
+
+    this.books = books
+
+  }
+
+  getID () {
+    return "user ID is : " + super.getID()
+  }
+}
+
+const  writer1 =  new Writer("mohamad" , 50 , User.ROLE_PROVIDER , ["book" , "book" ] )
+
+console.log(writer1.getID())
+
+console.log( writer1 instanceof User ); true
+  
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 */
