@@ -30,8 +30,67 @@ Real DOM : یک تگ ما یا المنت امون میاد و تغیر میکن
  
 1- getElement استفاده از دستورات    document.getElementsByTagName( );  //    document.getElementsByClassName( );  //  document.getElementById( );
            
-2- querySelector استفاده از دستورات    document.querySelector ( nameClass )    //     document.querySelectorAll ( nameClass )
-          
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+2- querySelector استفاده از دستورات    document.querySelector ( nameClass )    //     document.querySelectorAll ( nameClass )
+       
+<ul>
+  <li> The <li>
+  <li> test </li>
+</ul>
+<ul>
+  <li> The <li>
+  <li> test </li>
+</ul>
+
+<script>
+
+  let elements = document.querySelectorAll( ' ul > li : last-child ' );
+  for( let elem of elements ) {   alert ( elemt.innerHTML );  // "test" , "passed"   }
+
+<script>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+اون جوابی که به ما بر می گردونه به صورت لایو هستش  getElement هستش در این هستش که   querySelector و  getElement  نکته : یکی از تفاوت هایی که بین استفاده از 
+
+<div> Frist div </div>
+
+<script> 
+
+let divs = document.getElementsByTagName("div")
+alert(div.length)  // 1
+
+<script>
+
+<div> Second div </div>
+
+<script> 
+
+let divs = document.getElementsByTagName("div")
+alert(div.length)  // 2
+
+<script>
+
+///////////////////////////////////////////////////////////
+
+<div> Frist div </div>
+
+<script> 
+
+let divs = document.querySelectorAll("div")
+alert(div.length)  // 1
+
+<script>
+
+<div> Second div </div>
+
+<script> 
+
+let divs = document.querySelectorAll("div")
+alert(div.length)  // 1
+
+<script>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  */
