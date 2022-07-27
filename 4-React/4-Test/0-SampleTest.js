@@ -71,7 +71,32 @@ test("gte - should return true if a is equal b", () => {
 
 describe برای گروه بندی تست هامون هم از این متد باید بیایم و استفاده بکنیم
 
-const gte = require("./../code")
+function gte(a, b) {
+    return a >= b ? true : false
+}
+
+function wellcomeMessage(name) {
+    return `hello ${name} wellcome to jest tutorial`
+}
+
+function shoppingList() {
+    return ["peanut", "cake", "milk"]
+}
+
+function getUser() {
+    return { id: 2, name: "mohamad" }
+}
+
+function login(password) {
+    if (password !== "1234") {
+        throw new Error("password is wrong")
+    }
+    return { jwt: "w9j2gmf@#Fewdsf" }
+}
+
+module.exports = { gte, wellcomeMessage, shoppingList, getUser, login }
+
+const { gte, wellcomeMessage, shoppingList, getUser, login } = require("./../code")
 
 describe("gte", () => {
     it("gte - should return true if a is grater than b", () => {
@@ -81,7 +106,7 @@ describe("gte", () => {
 
     it("gte - should return false if a is less than b", () => {
         const result = gte(5, 10)
-        expect(result).toBe(true)
+        expect(result).toBe(false)
     })
 
     it("gte - should return true if a is equal b", () => {
@@ -90,6 +115,44 @@ describe("gte", () => {
     })
 })
 
+
+describe("wellcomeMessage", () => {
+    it("should return a welcome message containing the name ", () => {
+        const result = wellcomeMessage("emad")
+        expect(result).toContain("emad")
+    })
+})
+
+
+describe("shoppingList", () => {
+    it("should pass if the shopping list has milk on it", () => {
+        const result = shoppingList()
+        expect(result).toContain("milk")
+    })
+})
+
+
+describe("getUser", () => {
+    it("should pass if the shopping list has milk on it", () => {
+        const result = getUser()
+        // expect(result).toEqual({ id: 1, name: "mohamad" })
+        // expect(result).toMatchObject({ id: 2 })
+        expect(result).toHaveProperty('id')
+        expect(result).toHaveProperty('id', 2)
+    })
+})
+
+
+describe("login", () => {
+    it("should throw an error if password is wrong", () => {
+        expect(() => { login('3456') }).toThrow()
+    })
+    it("should returns jwt if password is not wrong", () => {
+        const result = login('1234')
+        expect(result).toHaveProperty('jwt')
+    })
+
+})
 
 ===================================================================================================================================
 
@@ -100,7 +163,6 @@ describe("gte", () => {
 function gte(a, b) {
    return a >= b ? true : false
 }
-
 
 toBe و toEqual  تفاوت 
 
